@@ -3,33 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>项目索引</title>
+<title>策划二组网页部署合集</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:"PingFang SC","Microsoft YaHei",-apple-system,sans-serif;background:#fbfaf5;color:#23271d;line-height:1.7;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px}
-.wrap{max-width:680px;width:100%}
-h1{font-size:26px;font-weight:900;color:#1C7A36;margin-bottom:8px}
-.sub{font-size:15px;color:#666;margin-bottom:32px}
-.card{display:block;text-decoration:none;background:#fff;border:1px solid #e2e0d4;border-radius:14px;padding:22px 26px;margin-bottom:16px;transition:border-color .2s,transform .15s}
-.card:hover{border-color:#2BA84A;transform:translateY(-2px)}
-.card .t{font-size:18px;font-weight:900;color:#27500A;margin-bottom:6px;display:flex;align-items:center;gap:10px}
-.card .badge{font-size:12px;font-weight:700;color:#fff;background:#F26B33;border-radius:6px;padding:2px 10px}
-.card .d{font-size:14px;color:#555}
-.card .arrow{color:#2BA84A;font-weight:900}
-.foot{margin-top:24px;font-size:12px;color:#999;text-align:center}
+:root{
+  --paper:#F7F5EE;--ink:#1B1B17;--sub:#6E6A5C;--line:#DAD5C5;--card:#FFFFFF;
+}
+html,body{background:var(--paper);color:var(--ink)}
+body{font-family:"PingFang SC","Microsoft YaHei",-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:56px 28px 80px}
+
+/* 刊头 masthead */
+.masthead{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:6px}
+.mast-top{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;letter-spacing:.18em;color:var(--sub);text-transform:uppercase;margin-bottom:18px}
+.mast-title{font-family:"PingFang SC","Microsoft YaHei",sans-serif;font-size:clamp(32px,5.6vw,60px);font-weight:800;letter-spacing:.06em;line-height:1.04}
+.mast-en{font-family:Georgia,"Times New Roman",serif;font-size:clamp(15px,2vw,20px);font-style:italic;letter-spacing:.08em;color:var(--sub);margin-top:10px}
+.mast-sub{display:flex;justify-content:space-between;align-items:flex-end;margin-top:16px}
+.mast-cn{font-size:14px;letter-spacing:.28em;color:var(--ink);font-weight:600}
+.mast-meta{font-size:12px;color:var(--sub);letter-spacing:.05em}
+.rule-thin{height:1px;background:var(--line);margin:0 0 34px}
+
+/* 栏目导语 */
+.lead{display:flex;gap:22px;align-items:flex-start;margin-bottom:40px}
+.lead .no{font-family:Georgia,serif;font-size:13px;letter-spacing:.2em;color:var(--sub);white-space:nowrap;padding-top:4px}
+.lead p{font-size:14px;color:var(--sub);max-width:680px}
+
+/* 分类网格 */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.cell{position:relative;display:block;text-decoration:none;color:inherit;background:var(--card);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 26px 26px;min-height:210px;transition:background .25s,transform .2s;overflow:hidden}
+.cell:hover{background:#FCFBF6}
+.cell .accent{position:absolute;top:0;left:0;width:100%;height:4px;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.cell:hover .accent{transform:scaleX(1)}
+.cell .seq{font-family:Georgia,serif;font-size:13px;letter-spacing:.18em;color:var(--sub)}
+.cell .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-left:8px;vertical-align:middle}
+.cell .cn{font-size:25px;font-weight:800;letter-spacing:.04em;margin:34px 0 6px;line-height:1.2}
+.cell .en{font-family:Georgia,serif;font-style:italic;font-size:14px;color:var(--sub);letter-spacing:.02em}
+.cell .foot{position:absolute;left:26px;right:26px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--sub)}
+.cell .count{letter-spacing:.05em}
+.cell .lock{display:inline-flex;align-items:center;gap:5px;letter-spacing:.05em}
+.cell .arrow{font-weight:800;font-size:16px;transition:transform .25s}
+.cell:hover .arrow{transform:translateX(5px)}
+
+/* 页脚 */
+.foot-bar{margin-top:46px;padding-top:18px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--sub);letter-spacing:.05em;flex-wrap:wrap;gap:8px}
+
+@media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){
+  .grid{grid-template-columns:1fr}
+  .lead{flex-direction:column;gap:8px}
+  .cell{min-height:170px;padding:26px 22px 24px}
+  .cell .cn{font-size:22px;margin-top:26px}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>项目索引</h1>
-  <p class="sub">Project Index</p>
 
-  <a class="card" href="ye-zai-yiqi/">
-    <div class="t">野在一起 On the Trail <span class="badge">招商方案</span></div>
-    <div class="d">腾讯广告 × PatRun 家庭户外营销 IP 整合营销招商方案 <span class="arrow">→</span></div>
-  </a>
+  <!-- 刊头 -->
+  <header class="masthead">
+    <div class="mast-top">
+      <span>Web Deployment Portfolio</span>
+      <span>Vol. 01 · 2026</span>
+    </div>
+    <div class="mast-title">策划二组 · 网页部署合集</div>
+    <div class="mast-en">Planning Team II — Web Deployment Collection</div>
+    <div class="mast-sub">
+      <span class="mast-cn">品 牌 招 商 项 目 索 引</span>
+      <span class="mast-meta">内部沟通材料 · 仅供合作洽谈</span>
+    </div>
+  </header>
+  <div class="rule-thin"></div>
 
-  <div class="foot">© 2026 · 内部沟通材料，仅供合作洽谈使用</div>
+  <!-- 导语 -->
+  <div class="lead">
+    <div class="no">INDEX / 06</div>
+    <p>覆盖六大消费赛道的品牌整合营销招商项目。点击进入对应栏目查阅项目方案，部分栏目需输入访问密码。</p>
+  </div>
+
+  <!-- 分类网格 -->
+  <nav class="grid">
+
+    <a class="cell" href="ge-hu-jia-qing/">
+      <span class="accent" style="background:#3E7C6A"></span>
+      <span class="seq">01<span class="dot" style="background:#3E7C6A"></span></span>
+      <div class="cn">个护家清</div>
+      <div class="en">Personal &amp; Home Care</div>
+      <div class="foot"><span class="count">敬请期待</span><span class="lock">需密码 <span class="arrow">→</span></span></div>
+    </a>
+
+    <a class="cell" href="xiao-dian-ri-bai/">
+      <span class="accent" style="background:#C8702E"></span>
+      <span class="seq">02<span class="dot" style="background:#C8702E"></span></span>
+      <div class="cn">消店日百</div>
+      <div class="en">FMCG &amp; Daily Goods</div>
+      <div class="foot"><span class="count">敬请期待</span><span class="lock">需密码 <span class="arrow">→</span></span></div>
+    </a>
+
+    <a class="cell" href="you-xi/">
+      <span class="accent" style="background:#3A5BA0"></span>
+      <span class="seq">03<span class="dot" style="background:#3A5BA0"></span></span>
+      <div class="cn">游戏</div>
+      <div class="en">Gaming</div>
+      <div class="foot"><span class="count">敬请期待</span><span class="lock">需密码 <span class="arrow">→</span></span></div>
+    </a>
+
+    <a class="cell" href="fu-shi-chao-she/">
+      <span class="accent" style="background:#8E5B9F"></span>
+      <span class="seq">04<span class="dot" style="background:#8E5B9F"></span></span>
+      <div class="cn">服饰潮奢</div>
+      <div class="en">Fashion &amp; Luxury</div>
+      <div class="foot"><span class="count">1 个项目</span><span class="lock">需密码 <span class="arrow">→</span></span></div>
+    </a>
+
+    <a class="cell" href="guo-ji-mei-zhuang/">
+      <span class="accent" style="background:#C24E6B"></span>
+      <span class="seq">05<span class="dot" style="background:#C24E6B"></span></span>
+      <div class="cn">国际美妆</div>
+      <div class="en">Global Beauty</div>
+      <div class="foot"><span class="count">敬请期待</span><span class="lock">需密码 <span class="arrow">→</span></span></div>
+    </a>
+
+    <a class="cell" href="ben-tu-mei-zhuang/">
+      <span class="accent" style="background:#B08A2E"></span>
+      <span class="seq">06<span class="dot" style="background:#B08A2E"></span></span>
+      <div class="cn">本土美妆</div>
+      <div class="en">Local Beauty</div>
+      <div class="foot"><span class="count">敬请期待</span><span class="lock">需密码 <span class="arrow">→</span></span></div>
+    </a>
+
+  </nav>
+
+  <div class="foot-bar">
+    <span>© 2026 策划二组</span>
+    <span>Confidential · For Partnership Discussion Only</span>
+  </div>
+
 </div>
 </body>
 </html>
