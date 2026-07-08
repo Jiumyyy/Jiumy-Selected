@@ -842,6 +842,11 @@ html.anim .tbenes .bg.on .fr-item:nth-child(5){animation-delay:.6s}
   .expo .eh .ev{font-size:38px}
 }
 
+
+/* 背景图统一 cover：修复手机端 background-size 默认 auto 只显示图片左上角裁剪块，
+   叠加深色渐变后形成大面积暗块（黑屏）的问题；桌面端同样受益 */
+.hero,.scene-banner,.foot{background-size:cover;background-position:center}
+
 </style>
 </head>
 <body>
@@ -3418,6 +3423,15 @@ var KOL_DATA={"sphgHvsktXKENtD":{"av":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ
   });
   window.addEventListener('beforeprint',function(){f.classList.remove('closed')});
 })();
+
+/* 动画显隐兜底：防止 IO 在个别移动端浏览器未触发导致 .fstep 永久 opacity:0 */
+(function(){
+  if(!document.documentElement.classList.contains('anim'))return;
+  setTimeout(function(){
+    document.querySelectorAll('.fstep').forEach(function(el){el.classList.add('inview');});
+  },3000);
+})();
+
 </script>
 </body>
 </html>
